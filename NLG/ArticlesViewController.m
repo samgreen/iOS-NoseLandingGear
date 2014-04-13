@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 NextLevelGeek. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ArticlesViewController.h"
 
-@interface ViewController ()
+@interface ArticlesViewController ()
 
 @end
 
-@implementation ViewController
+@implementation ArticlesViewController
 
 - (void)viewDidLoad
 {
