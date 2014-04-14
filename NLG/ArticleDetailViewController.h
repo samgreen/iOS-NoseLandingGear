@@ -11,5 +11,6 @@
 @interface ArticleDetailViewController : UIViewController
 
 @property (strong, nonatomic) NSURL *URL;
+@property (strong, nonatomic) NSString *contentHTML;
 
 @end

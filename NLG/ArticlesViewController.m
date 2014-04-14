@@ -9,6 +9,8 @@
 #import "ArticlesViewController.h"
 #import "ArticleDetailViewController.h"
 
+#import "Article.h"
+
 #import "NLGHTTPSessionManager.h"
 
 #import "GTMNSString+HTML.h"
@@ -85,10 +87,10 @@
     if ([segue.identifier isEqualToString:@"pushWebView"]) {
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDictionary *article = [self dictionaryForIndexPath:indexPath];
+        Article *article = [self articleForIndexPath:indexPath];
         
         ArticleDetailViewController *detailVC = (ArticleDetailViewController *)segue.destinationViewController;
-        detailVC.URL = [NSURL URLWithString:article[@"url"]];
+        detailVC.contentHTML = article.contentHTML;
     }
 }
 
@@ -96,22 +98,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArticleCell"];
     
-    NSDictionary *article = [self dictionaryForIndexPath:indexPath];
-//    cell.textLabel.text = article[@"title"];
-    cell.textLabel.text = [article[@"title"] gtm_stringByUnescapingFromHTML];
+    Article *article = [self articleForIndexPath:indexPath];
     
-    NSDictionary *author = article[@"author"];
-    cell.detailTextLabel.text = author[@"first_name"];
+    cell.textLabel.text = article.title;
+    cell.detailTextLabel.text = article.author;
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *article = [self dictionaryForIndexPath:indexPath];
+    Article *article = [self articleForIndexPath:indexPath];
     
-    NSString *title = article[@"title"];
-    
-    CGSize titleSize = [title sizeWithAttributes:self.titleAttributes];
+    CGSize titleSize = [article.title sizeWithAttributes:self.titleAttributes];
     CGFloat titleHeight = titleSize.height;
     CGFloat titleWidth = titleSize.width;
     
@@ -129,7 +127,7 @@
     return [self.articles count];
 }
 
-- (NSDictionary *)dictionaryForIndexPath:(NSIndexPath *)indexPath {
+- (Article *)articleForIndexPath:(NSIndexPath *)indexPath {
     return self.articles[indexPath.row];
 }
 

@@ -8,6 +8,8 @@
 
 #import "NLGHTTPSessionManager.h"
 
+#import "Article.h"
+
 @implementation NLGHTTPSessionManager
 
 + (instancetype)manager {
@@ -28,7 +30,15 @@
     NSDictionary *params = @{ @"json": @(1), @"count": @(count) };
     
     [[self manager] GET:@"/NLG/" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        block(responseObject[@"posts"], nil);
+        NSArray *postDicks = responseObject[@"posts"];
+        NSMutableArray *postObjects = [NSMutableArray arrayWithCapacity:postDicks.count];
+        
+        for (NSDictionary *postInfo in postDicks) {
+            Article *article = [Article articleFromDictionary:postInfo];
+            [postObjects addObject:article];
+        }
+        
+        block(postObjects, nil);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         block(nil, error);
     }];

@@ -19,9 +19,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.webView.scrollView.contentInset = UIEdgeInsetsMake(64.f, 0, 0, 0);
+    self.contentHTML = self.contentHTML;
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
-    [self loadURL:self.URL];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
+- (void)setContentHTML:(NSString *)contentHTML {
+    _contentHTML = contentHTML;
+    
+    NSString *templatePath = [[NSBundle mainBundle] pathForResource:@"template" ofType:@"html"];
+    NSString *templateHTML = [[NSString alloc] initWithContentsOfFile:templatePath encoding:NSUTF8StringEncoding error:NULL];
+    [self.webView loadHTMLString:[NSString stringWithFormat:templateHTML, self.contentHTML] baseURL:nil];
 }
 
 - (void)setURL:(NSURL *)URL {
@@ -51,13 +72,6 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
     webView.hidden = NO;
-    
-    NSString *titleScript = @"document.title";
-    NSString *pageTitle = [webView stringByEvaluatingJavaScriptFromString:titleScript];
-    self.title = pageTitle;
-    
-    NSString *script = @"scrollTo(0, 260);";
-    [webView stringByEvaluatingJavaScriptFromString:script];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {

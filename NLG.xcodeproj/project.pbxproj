@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7706D22D18FB9674005E5E81 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 7706D22B18FB9674005E5E81 /* GTMNSString+HTML.m */; };
 		7706D23018FB9C0C005E5E81 /* LightNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7706D22F18FB9C0C005E5E81 /* LightNavigationController.m */; };
+		7706D23718FBA797005E5E81 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = 7706D23618FBA797005E5E81 /* Article.m */; };
+		7706D23918FBAF4D005E5E81 /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = 7706D23818FBAF4D005E5E81 /* template.html */; };
 		77B29FA418FB31F700F8816E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B29FA318FB31F700F8816E /* Foundation.framework */; };
 		77B29FA618FB31F700F8816E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B29FA518FB31F700F8816E /* CoreGraphics.framework */; };
 		77B29FA818FB31F700F8816E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B29FA718FB31F700F8816E /* UIKit.framework */; };
@@ -45,6 +47,9 @@
 		7706D22C18FB9674005E5E81 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		7706D22E18FB9C0C005E5E81 /* LightNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightNavigationController.h; sourceTree = "<group>"; };
 		7706D22F18FB9C0C005E5E81 /* LightNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightNavigationController.m; sourceTree = "<group>"; };
+		7706D23518FBA797005E5E81 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
+		7706D23618FBA797005E5E81 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
+		7706D23818FBAF4D005E5E81 /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
 		77B29FA018FB31F700F8816E /* NLG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NLG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B29FA318FB31F700F8816E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		77B29FA518FB31F700F8816E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -95,6 +100,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7706D23118FBA757005E5E81 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7706D22B18FB9674005E5E81 /* GTMNSString+HTML.m */,
+				7706D22C18FB9674005E5E81 /* GTMNSString+HTML.h */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		7706D23218FBA75D005E5E81 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7706D23518FBA797005E5E81 /* Article.h */,
+				7706D23618FBA797005E5E81 /* Article.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7706D23318FBA763005E5E81 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				77B29FB818FB31F700F8816E /* ArticlesViewController.h */,
+				77B29FB918FB31F700F8816E /* ArticlesViewController.m */,
+				77B29FDB18FB3AC900F8816E /* ArticleDetailViewController.h */,
+				77B29FDC18FB3AC900F8816E /* ArticleDetailViewController.m */,
+				7706D22E18FB9C0C005E5E81 /* LightNavigationController.h */,
+				7706D22F18FB9C0C005E5E81 /* LightNavigationController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7706D23418FBA776005E5E81 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				77B29FD818FB34F700F8816E /* NLGHTTPSessionManager.h */,
+				77B29FD918FB34F700F8816E /* NLGHTTPSessionManager.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		77B29F9718FB31F600F8816E = {
 			isa = PBXGroup;
 			children = (
@@ -130,21 +175,13 @@
 		77B29FA918FB31F700F8816E /* NLG */ = {
 			isa = PBXGroup;
 			children = (
-				7706D22B18FB9674005E5E81 /* GTMNSString+HTML.m */,
-				7706D22C18FB9674005E5E81 /* GTMNSString+HTML.h */,
+				7706D23418FBA776005E5E81 /* Network */,
+				7706D23318FBA763005E5E81 /* View Controllers */,
+				7706D23218FBA75D005E5E81 /* Models */,
+				7706D23118FBA757005E5E81 /* Categories */,
 				77B29FB218FB31F700F8816E /* AppDelegate.h */,
 				77B29FB318FB31F700F8816E /* AppDelegate.m */,
-				77B29FB518FB31F700F8816E /* Main.storyboard */,
-				77B29FB818FB31F700F8816E /* ArticlesViewController.h */,
-				77B29FB918FB31F700F8816E /* ArticlesViewController.m */,
-				77B29FBB18FB31F700F8816E /* Images.xcassets */,
 				77B29FAA18FB31F700F8816E /* Supporting Files */,
-				77B29FD818FB34F700F8816E /* NLGHTTPSessionManager.h */,
-				77B29FD918FB34F700F8816E /* NLGHTTPSessionManager.m */,
-				77B29FDB18FB3AC900F8816E /* ArticleDetailViewController.h */,
-				77B29FDC18FB3AC900F8816E /* ArticleDetailViewController.m */,
-				7706D22E18FB9C0C005E5E81 /* LightNavigationController.h */,
-				7706D22F18FB9C0C005E5E81 /* LightNavigationController.m */,
 			);
 			path = NLG;
 			sourceTree = "<group>";
@@ -152,10 +189,13 @@
 		77B29FAA18FB31F700F8816E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				77B29FBB18FB31F700F8816E /* Images.xcassets */,
+				77B29FB518FB31F700F8816E /* Main.storyboard */,
 				77B29FAB18FB31F700F8816E /* NLG-Info.plist */,
 				77B29FAC18FB31F700F8816E /* InfoPlist.strings */,
 				77B29FAF18FB31F700F8816E /* main.m */,
 				77B29FB118FB31F700F8816E /* NLG-Prefix.pch */,
+				7706D23818FBAF4D005E5E81 /* template.html */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -256,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7706D23918FBAF4D005E5E81 /* template.html in Resources */,
 				77B29FBC18FB31F700F8816E /* Images.xcassets in Resources */,
 				77B29FAE18FB31F700F8816E /* InfoPlist.strings in Resources */,
 				77B29FB718FB31F700F8816E /* Main.storyboard in Resources */,
@@ -310,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7706D23718FBA797005E5E81 /* Article.m in Sources */,
 				77B29FBA18FB31F700F8816E /* ArticlesViewController.m in Sources */,
 				77B29FDD18FB3AC900F8816E /* ArticleDetailViewController.m in Sources */,
 				77B29FB418FB31F700F8816E /* AppDelegate.m in Sources */,
@@ -445,6 +487,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NLG/NLG-Prefix.pch";
 				INFOPLIST_FILE = "NLG/NLG-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -459,6 +502,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NLG/NLG-Prefix.pch";
 				INFOPLIST_FILE = "NLG/NLG-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
