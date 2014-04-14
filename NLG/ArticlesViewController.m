@@ -7,36 +7,130 @@
 //
 
 #import "ArticlesViewController.h"
+#import "ArticleDetailViewController.h"
+
+#import "NLGHTTPSessionManager.h"
+
+#import "GTMNSString+HTML.h"
 
 @interface ArticlesViewController ()
+
+@property (nonatomic, strong) NSArray *articles;
+@property (nonatomic, strong) NSDictionary *titleAttributes;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation ArticlesViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (self) {
+        if (self.titleAttributes == nil) {
+            self.titleAttributes = @{ NSFontAttributeName: [UIFont fontWithName:@"Baskerville-Bold" size:18.f] };
+        }
+        
+        self.title = @" ";
+        
+        [self fetchArticles];
+    }
+    return self;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(64.f, 0, 0, 0);
+}
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    self.articles = nil;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:animated];
+}
+
+- (IBAction)fetchArticles {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    self.tableView.hidden = YES;
+    
+    [NLGHTTPSessionManager fetchNumberOfArticles:20 complete:^(NSArray *articles, NSError *error) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        self.tableView.hidden = NO;
+        
+        if (error == nil) {
+            self.articles = articles;
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    }];
+}
+
+#pragma mark - Storyboard
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
+    
+    if ([segue.identifier isEqualToString:@"pushWebView"]) {
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSDictionary *article = [self dictionaryForIndexPath:indexPath];
+        
+        ArticleDetailViewController *detailVC = (ArticleDetailViewController *)segue.destinationViewController;
+        detailVC.URL = [NSURL URLWithString:article[@"url"]];
+    }
 }
 
 #pragma mark - TableView
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArticleCell"];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)indexPath.row];
+    NSDictionary *article = [self dictionaryForIndexPath:indexPath];
+//    cell.textLabel.text = article[@"title"];
+    cell.textLabel.text = [article[@"title"] gtm_stringByUnescapingFromHTML];
+    
+    NSDictionary *author = article[@"author"];
+    cell.detailTextLabel.text = author[@"first_name"];
     
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *article = [self dictionaryForIndexPath:indexPath];
+    
+    NSString *title = article[@"title"];
+    
+    CGSize titleSize = [title sizeWithAttributes:self.titleAttributes];
+    CGFloat titleHeight = titleSize.height;
+    CGFloat titleWidth = titleSize.width;
+    
+    while (titleWidth > 320.f) {
+        titleWidth -= 320.f;
+        titleHeight += titleSize.height;
+    }
+    
+    
+    static const CGFloat kMinimumCellHeight = 64.f;
+    return kMinimumCellHeight + titleHeight;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return [self.articles count];
+}
+
+- (NSDictionary *)dictionaryForIndexPath:(NSIndexPath *)indexPath {
+    return self.articles[indexPath.row];
 }
 
 @end

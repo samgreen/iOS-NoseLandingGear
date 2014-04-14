@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7706D22D18FB9674005E5E81 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 7706D22B18FB9674005E5E81 /* GTMNSString+HTML.m */; };
+		7706D23018FB9C0C005E5E81 /* LightNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7706D22F18FB9C0C005E5E81 /* LightNavigationController.m */; };
 		77B29FA418FB31F700F8816E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B29FA318FB31F700F8816E /* Foundation.framework */; };
 		77B29FA618FB31F700F8816E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B29FA518FB31F700F8816E /* CoreGraphics.framework */; };
 		77B29FA818FB31F700F8816E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B29FA718FB31F700F8816E /* UIKit.framework */; };
@@ -21,6 +23,9 @@
 		77B29FC518FB31F700F8816E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B29FA718FB31F700F8816E /* UIKit.framework */; };
 		77B29FCD18FB31F700F8816E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77B29FCB18FB31F700F8816E /* InfoPlist.strings */; };
 		77B29FCF18FB31F700F8816E /* NLGTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B29FCE18FB31F700F8816E /* NLGTests.m */; };
+		77B29FDA18FB34F700F8816E /* NLGHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B29FD918FB34F700F8816E /* NLGHTTPSessionManager.m */; };
+		77B29FDD18FB3AC900F8816E /* ArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B29FDC18FB3AC900F8816E /* ArticleDetailViewController.m */; };
+		F16AB0B67D594E129AC1334C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 266AA890DFC34B808E3E58AC /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		266AA890DFC34B808E3E58AC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CC8E5CAC5654048BDE4CADA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		7706D22B18FB9674005E5E81 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		7706D22C18FB9674005E5E81 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		7706D22E18FB9C0C005E5E81 /* LightNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightNavigationController.h; sourceTree = "<group>"; };
+		7706D22F18FB9C0C005E5E81 /* LightNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightNavigationController.m; sourceTree = "<group>"; };
 		77B29FA018FB31F700F8816E /* NLG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NLG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B29FA318FB31F700F8816E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		77B29FA518FB31F700F8816E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +64,10 @@
 		77B29FCA18FB31F700F8816E /* NLGTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NLGTests-Info.plist"; sourceTree = "<group>"; };
 		77B29FCC18FB31F700F8816E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		77B29FCE18FB31F700F8816E /* NLGTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NLGTests.m; sourceTree = "<group>"; };
+		77B29FD818FB34F700F8816E /* NLGHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLGHTTPSessionManager.h; sourceTree = "<group>"; };
+		77B29FD918FB34F700F8816E /* NLGHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLGHTTPSessionManager.m; sourceTree = "<group>"; };
+		77B29FDB18FB3AC900F8816E /* ArticleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleDetailViewController.h; sourceTree = "<group>"; };
+		77B29FDC18FB3AC900F8816E /* ArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +78,7 @@
 				77B29FA618FB31F700F8816E /* CoreGraphics.framework in Frameworks */,
 				77B29FA818FB31F700F8816E /* UIKit.framework in Frameworks */,
 				77B29FA418FB31F700F8816E /* Foundation.framework in Frameworks */,
+				F16AB0B67D594E129AC1334C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +102,7 @@
 				77B29FC818FB31F700F8816E /* NLGTests */,
 				77B29FA218FB31F700F8816E /* Frameworks */,
 				77B29FA118FB31F700F8816E /* Products */,
+				5CC8E5CAC5654048BDE4CADA /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +122,7 @@
 				77B29FA518FB31F700F8816E /* CoreGraphics.framework */,
 				77B29FA718FB31F700F8816E /* UIKit.framework */,
 				77B29FC218FB31F700F8816E /* XCTest.framework */,
+				266AA890DFC34B808E3E58AC /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,6 +130,8 @@
 		77B29FA918FB31F700F8816E /* NLG */ = {
 			isa = PBXGroup;
 			children = (
+				7706D22B18FB9674005E5E81 /* GTMNSString+HTML.m */,
+				7706D22C18FB9674005E5E81 /* GTMNSString+HTML.h */,
 				77B29FB218FB31F700F8816E /* AppDelegate.h */,
 				77B29FB318FB31F700F8816E /* AppDelegate.m */,
 				77B29FB518FB31F700F8816E /* Main.storyboard */,
@@ -119,6 +139,12 @@
 				77B29FB918FB31F700F8816E /* ArticlesViewController.m */,
 				77B29FBB18FB31F700F8816E /* Images.xcassets */,
 				77B29FAA18FB31F700F8816E /* Supporting Files */,
+				77B29FD818FB34F700F8816E /* NLGHTTPSessionManager.h */,
+				77B29FD918FB34F700F8816E /* NLGHTTPSessionManager.m */,
+				77B29FDB18FB3AC900F8816E /* ArticleDetailViewController.h */,
+				77B29FDC18FB3AC900F8816E /* ArticleDetailViewController.m */,
+				7706D22E18FB9C0C005E5E81 /* LightNavigationController.h */,
+				7706D22F18FB9C0C005E5E81 /* LightNavigationController.m */,
 			);
 			path = NLG;
 			sourceTree = "<group>";
@@ -159,9 +185,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77B29FD218FB31F700F8816E /* Build configuration list for PBXNativeTarget "NLG" */;
 			buildPhases = (
+				8B0960D0ADD4443C95421B08 /* Check Pods Manifest.lock */,
 				77B29F9C18FB31F600F8816E /* Sources */,
 				77B29F9D18FB31F600F8816E /* Frameworks */,
 				77B29F9E18FB31F600F8816E /* Resources */,
+				24800E9AD166492885F553EE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,14 +272,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24800E9AD166492885F553EE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B0960D0ADD4443C95421B08 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		77B29F9C18FB31F600F8816E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				77B29FBA18FB31F700F8816E /* ArticlesViewController.m in Sources */,
+				77B29FDD18FB3AC900F8816E /* ArticleDetailViewController.m in Sources */,
 				77B29FB418FB31F700F8816E /* AppDelegate.m in Sources */,
+				77B29FDA18FB34F700F8816E /* NLGHTTPSessionManager.m in Sources */,
 				77B29FB018FB31F700F8816E /* main.m in Sources */,
+				7706D22D18FB9674005E5E81 /* GTMNSString+HTML.m in Sources */,
+				7706D23018FB9C0C005E5E81 /* LightNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +438,7 @@
 		};
 		77B29FD318FB31F700F8816E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CC8E5CAC5654048BDE4CADA /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -386,6 +452,7 @@
 		};
 		77B29FD418FB31F700F8816E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CC8E5CAC5654048BDE4CADA /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -456,6 +523,7 @@
 				77B29FD418FB31F700F8816E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		77B29FD518FB31F700F8816E /* Build configuration list for PBXNativeTarget "NLGTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +532,7 @@
 				77B29FD718FB31F700F8816E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
