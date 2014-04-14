@@ -70,7 +70,6 @@
 
 - (IBAction)fetchArticles:(NSUInteger)number {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    self.tableView.hidden = YES;
     
     [NLGHTTPSessionManager fetchNumberOfArticles:number complete:^(NSArray *articles, NSError *error) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
