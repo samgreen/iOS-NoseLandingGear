@@ -27,7 +27,7 @@
 }
 
 + (void)fetchNumberOfArticles:(NSUInteger)count complete:(void (^)(NSArray *articles, NSError *error))block {
-    NSDictionary *params = @{ @"json": @(1), @"count": @(count) };
+    NSDictionary *params = @{ @"json": @(1), @"count": @(count), @"include": @"date,title,author,excerpt,content,url" };
     
     [[self manager] GET:@"/NLG/" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *postDicks = responseObject[@"posts"];

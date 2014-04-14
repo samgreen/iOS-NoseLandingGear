@@ -34,7 +34,7 @@
     [super viewDidAppear:animated];
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+//    [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
 - (void)setContentHTML:(NSString *)contentHTML {

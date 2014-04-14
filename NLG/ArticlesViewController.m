@@ -35,7 +35,7 @@
         
         self.title = @" ";
         
-        [self fetchArticles];
+        [self fetchArticles:3];
     }
     return self;
 }
@@ -43,7 +43,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.contentInset = UIEdgeInsetsMake(64.f, 0, 0, 0);
+    [self fetchArticles:20];
+    
+//    self.tableView.contentInset = UIEdgeInsetsMake(64.f, 0, 0, 0);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,10 +65,14 @@
 }
 
 - (IBAction)fetchArticles {
+    [self fetchArticles:20];
+}
+
+- (IBAction)fetchArticles:(NSUInteger)number {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     self.tableView.hidden = YES;
     
-    [NLGHTTPSessionManager fetchNumberOfArticles:20 complete:^(NSArray *articles, NSError *error) {
+    [NLGHTTPSessionManager fetchNumberOfArticles:number complete:^(NSArray *articles, NSError *error) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         self.tableView.hidden = NO;
         
